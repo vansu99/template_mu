@@ -1,0 +1,62 @@
+.service {
+  padding-top: 11rem;
+  padding-bottom: 12rem;
+  background-color: #ffffff;
+
+  &-list {
+    @include flexBox(stretch, space-between);
+    margin-top: 6.5rem;
+
+    &:first-of-type {
+      border-bottom: 1px solid $gray-dark-color;
+      margin-bottom: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  &-item {
+    width: calc(33.33% - 2.7rem);
+    @include flexBox(flex-start);
+
+    &-icon {
+      width: 3.5rem;
+      object-fit: contain;
+      margin: 0 3rem;
+    }
+
+    &-info {
+      width: calc(100% - 9.5rem);
+      height: 100%;
+    }
+
+    &-title {
+      font-weight: 500;
+      color: $title-color;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      @include textClamp(1);
+    }
+
+    &-desc {
+      color: $text-color;
+      line-height: 1.6;
+      font-weight: 300;
+      font-family: $secondary-font;
+    }
+  }
+
+  @include maxWidth(1023px) {
+    padding: 5rem 0;
+    &-list {
+      display: block;
+    }
+
+    &-item {
+      width: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.quote {
+  padding: 6.5rem 0;
+  background-color: $gray-color;
+
+  &-item {
+    padding-left: 5.5rem;
+    padding-right: 5.5rem;
+    @include flexBox(center);
+    outline: none;
+  }
+
+  &-icon {
+    width: 15rem;
+    height: 15rem;
+    @include flexBox(center, center);
+    border: 3px solid $third-color;
+    // luôn có width: 15rem, không bị co lại
+    flex-shrink: 0;
+  }
+  &-info {
+    padding-left: 6rem;
+  }
+  &-desc {
+    font-size: 2.5rem;
+    font-style: italic;
+    line-height: 1.6;
+    font-weight: 300;
+    color: $text-color;
+    margin-bottom: 2.5rem;
+    font-family: $secondary-font;
+    @include textClamp(3);
+  }
+  &-author {
+    position: relative;
+    font-size: 2.4rem;
+    font-family: $third-font;
+    padding-left: 7rem;
+    &::before {
+      content: "";
+      @include absoluteCenter("top");
+      @include size(6rem, 4px);
+      background-color: $primary-color;
+      left: 0;
+    }
+  }
+
+  // slick
+  .slick-initialized .slick-slide {
+    display: flex;
+  }
+
+  .slick-arrow {
+    border: 0;
+    background-color: transparent;
+    color: $gray-dark-color;
+    cursor: pointer;
+    font-size: 3rem;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .slick-prev {
+    left: 0;
+  }
+
+  .slick-next {
+    right: 0;
+  }
+
+  @include maxWidth(767px) {
+    &-item {
+      padding: 0;
+      flex-direction: column;
+    }
+    &-icon {
+      @include size(10rem);
+      img {
+        max-width: 50%;
+      }
+    }
+    &-info {
+      padding-left: 0;
+      margin-top: 3rem;
+    }
+    &-desc {
+      // block : vô hiệu quá textClamp
+      display: block;
+      font-size: 1.6rem;
+    }
+    &-author {
+      font-size: 2rem;
+    }
+  }
+}

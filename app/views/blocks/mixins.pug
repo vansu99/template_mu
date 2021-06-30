@@ -1,0 +1,78 @@
+mixin MenuListItem(title, href = "#")
+	li.header-menu-item
+		a.header-menu-link(href=href)=title
+
+mixin HeaderBottomItem(number, text)
+	.header-bottom-item
+		span.header-bottom-number=number
+		span.header-bottom-text=text
+
+mixin blockHeader(caption, title, desc)
+	.block-header
+		h3.block-header-caption=caption
+		h2.block-header-title=title
+		if desc
+			p.block-header-desc=desc
+
+mixin aboutItem(title, src, iconClass, alt="")
+	.about-item
+		img.about-image(src=src, alt=alt)
+		.about-content
+			i.about-icon(class=iconClass)
+			span.about-title=title
+
+mixin numberItem(count, title)
+	.number-item
+		h4.number-item-count=count
+		span.number-item-text=title
+
+mixin serviceItem(src, title, desc, alt="")
+	.service-item
+		img.service-item-icon(src=src, alt=alt)
+		.service-item-info
+			h3.service-item-title=title
+			p.service-item-desc=desc
+
+mixin wedoItem(src, title, text, isActive ="")
+	if isActive
+		.wedo-item(class=isActive)
+			.wedo-item-header
+				img(src=src).wedo-item-icon
+				h3.wedo-item-title=title
+				i.fal.fa-angle-up.wedo-item-arrow
+			.wedo-item-content
+				.wedo-item-text=text
+	else
+		.wedo-item
+			.wedo-item-header
+				img(src=src).wedo-item-icon
+				h3.wedo-item-title=title
+				i.fal.fa-angle-down.wedo-item-arrow
+			.wedo-item-content
+				.wedo-item-text=text
+
+mixin teamSocial(facebook="#", twitter="#", pinterest="#", instagram="#")
+	ul.team-social
+		li.team-social-item
+			a.team-social-link(href=facebook)
+				i.fab.fa-facebook-f
+		li.team-social-item
+			a.team-social-link(href=twitter)
+				i.fab.fa-twitter
+		li.team-social-item
+			a.team-social-link(href=pinterest)
+				i.fab.fa-pinterest
+		li.team-social-item
+			a.team-social-link(href=instagram)
+				i.fab.fa-instagram
+
+mixin teamItem(src="./images/img-team1.png", name="Evan", position="Front-End Developer")
+	.team-item
+		.team-main
+			img(src=src).team-image
+			.team-content
+				if block
+					block
+		.team-info
+			h3.team-name=name
+			span.team-position=position
