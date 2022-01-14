@@ -43,6 +43,11 @@
     }
   }
 
+  &-image {
+    height: 100%;
+    object-fit: cover;
+  }
+
   // Grid
   // &-list {
   //   display: grid;

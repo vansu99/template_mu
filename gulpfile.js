@@ -1,6 +1,6 @@
 const gulp = require("gulp");
 const pug = require("gulp-pug");
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require('sass'));
 const imagemin = require("gulp-imagemin");
 const uglify = require("gulp-uglify");
 const babel = require("gulp-babel");
